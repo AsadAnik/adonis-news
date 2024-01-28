@@ -1,0 +1,16 @@
+@component('layouts/master', { title: 'News List' })
+
+{{--  @slot('content')  --}}
+<h1>News Articles</h1>
+<ul>
+    @each (item in news)
+    <li>
+        <a href="/news/{{item.id}}">{{ item.title }}</a>
+    </li>
+    @end
+</ul>
+
+<a href="{{ route('news.create') }}">Create New Article</a>
+{{--  @end  --}}
+
+@endcomponent

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{{title}}</title>
+
+    @vite(['resources/js/app.js'])
+</head>
+
+<body>
+    @if(flashMessages.has('error'))
+    <div class="alert alert-danger">
+        <strong>Error!</strong> {{flashMessages.get('error')}}
+    </div>
+    @endif
+
+    <h3>Master Layout</h3>
+
+    {{-- Header --}}
+    @include('partials/header')
+
+    {{-- Render the content of the specific view --}}
+    {{-- @yield('content') --}}
+    <section class="content">
+        {{{ await $slots.main() }}}
+    </section>
+
+    {{-- Footer --}}
+    @include('partials/footer')
+</body>
+
+</html>

@@ -1,0 +1,24 @@
+@component('layouts/master', { title: 'Create News' })
+<section>
+    <h1>Create News</h1>
+
+    @if(flashMessages.has('success'))
+    <div class="alert alert-success">
+        {{ flashMessage.get('success') }}
+    </div>
+    @endif
+
+    <form method="POST" action="{{ route('news.store') }}">
+        {{ csrfField() }}
+        <div class="title">
+            <input type="text" placeholder="Title" name="title" id="">
+        </div>
+
+        <div class="content">
+            <textarea name="content" placeholder="Content.."></textarea>
+        </div>
+
+        <button type="submit">Post a News</button>
+    </form>
+</section>
+@endcomponent
